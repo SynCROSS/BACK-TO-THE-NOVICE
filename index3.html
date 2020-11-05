@@ -6,23 +6,49 @@
     <title>WoW!!!</title>
   </head>
   <body>
-    <input type="button" value="red" class="red" />red <br />
-    <input type="button" value="green" class="green" />green <br />
-    <input type="button" value="blue" class="blue" />blue <br />
+    <!-- <form> -->
+    <input type="text" class="input input1" />
+    <input type="text" class="input input2" />
+    <input type="text" class="input input3" />
+    <br />
+    <!-- </form> -->
+    <input
+      type="submit"
+      value="submit"
+      onclick="changeColor()"
+      style="width: 41.5rem"
+    />
     <script>
-      const red = document.querySelector('.red');
-      const green = document.querySelector('.green');
-      const blue = document.querySelector('.blue');
+      const changeColor = () => {
+        const input1 = document.querySelector('.input1');
+        const input2 = document.querySelector('.input2');
+        const input3 = document.querySelector('.input3');
 
-      red.addEventListener('click', () => {
-        document.body.style.backgroundColor = 'red';
-      });
-      green.addEventListener('click', () => {
-        document.body.style.backgroundColor = 'green';
-      });
-      blue.addEventListener('click', () => {
-        document.body.style.backgroundColor = 'blue';
-      });
+        if (
+          input1.value !== 'red' &&
+          'green' &&
+          'blue' &&
+          input2.value !== 'red' &&
+          'green' &&
+          'blue' &&
+          input3.value !== 'red' &&
+          'green' &&
+          'blue'
+        ) {
+          return null;
+        }
+        setInterval(() => {
+          setTimeout(() => {
+            document.body.style.backgroundColor = input1.value;
+          }, 1000);
+          setTimeout(() => {
+            document.body.style.backgroundColor = input2.value;
+          }, 2000);
+          setTimeout(() => {
+            document.body.style.backgroundColor = input3.value;
+          }, 3000);
+        }, 1000);
+      };
     </script>
   </body>
 </html>
