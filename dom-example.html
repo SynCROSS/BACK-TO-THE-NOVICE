@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Example</title>
+  </head>
+  <body>
+    <a href=""> fact about deer </a>
+    <script>
+      // const title = document.querySelector('title');
+      // alert(title.textContent);
+      // const body = document.querySelector('body');
+      // console.log(body);
+      setTimeout(() => {
+        for (const element of document.body.children) {
+          alert(element.text);
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -7,30 +7,10 @@
   </head>
   <body>
     <script>
-      document.body.style.backgroundColor = '#000';
-      while (true) {
-        setTimeout(() => {
-          document.body.style.backgroundColor = 'red';
-        }, 1);
-        setTimeout(() => {
-          document.body.style.backgroundColor = 'blueviolet';
-        }, 10);
+      alert(location.href); // 현재 URL을 보여줌
+      if (confirm('위키피디아 페이지로 가시겠습니까?')) {
+        location.href = 'https://wikipedia.org'; // 새로운 페이지로 넘어감
       }
-      // setTimeout(() => {
-      //   document.body.style.backgroundColor = '#orange';
-      // }, 2010);
-      // setTimeout(() => {
-      //   document.body.style.backgroundColor = 'yellow';
-      // }, 3020);
-      // setTimeout(() => {
-      //   document.body.style.backgroundColor = 'lightgreen';
-      // }, 4030);
-      // setTimeout(() => {
-      //   document.body.style.backgroundColor = 'aliceblue';
-      // }, 5040);
-      // setTimeout(() => {
-      //   document.body.style.backgroundColor = 'purple';
-      // }, 7060);
     </script>
   </body>
 </html>

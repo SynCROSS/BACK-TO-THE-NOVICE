@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WoW!!!</title>
+  </head>
+  <body>
+    <input type="button" value="red" class="red" />red <br />
+    <input type="button" value="green" class="green" />green <br />
+    <input type="button" value="blue" class="blue" />blue <br />
+    <script>
+      const red = document.querySelector('.red');
+      const green = document.querySelector('.green');
+      const blue = document.querySelector('.blue');
+
+      red.addEventListener('click', () => {
+        document.body.style.backgroundColor = 'red';
+      });
+      green.addEventListener('click', () => {
+        document.body.style.backgroundColor = 'green';
+      });
+      blue.addEventListener('click', () => {
+        document.body.style.backgroundColor = 'blue';
+      });
+    </script>
+  </body>
+</html>
