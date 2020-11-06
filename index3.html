@@ -7,68 +7,18 @@
   </head>
   <body>
     <!-- <form> -->
-    <input type="text" class="input input1" />
-    <input type="text" class="input input2" />
-    <input type="text" class="input input3" />
-    <!-- </form> -->
-    <!-- <input
-      type="submit"
-      value="submit"
-      onclick="changeColor()"
-      style="width: 20rem"
-    /> -->
+    <input type="text" class="input" />
     <div class="button">
-      <button
-        type="submit"
-        class="btn btn-submit"
-        onclick="changeColor()"
-        style="width: 20.5rem"
-      >
-        Submit
-      </button>
-      <button
-        type="submit"
-        class="btn btn-reset"
-        onclick="resetValue()"
-        style="width: 20.5rem"
-      >
-        Reset
-      </button>
+      <input type="button" value="submit" onclick="printInputValue()" />
     </div>
+    <ul class="list"></ul>
     <script>
-      const input1 = document.querySelector('.input1');
-      const input2 = document.querySelector('.input2');
-      const input3 = document.querySelector('.input3');
-      const changeColor = () => {
-        if (
-          input1.value !== 'red' &&
-          'green' &&
-          'blue' &&
-          input2.value !== 'red' &&
-          'green' &&
-          'blue' &&
-          input3.value !== 'red' &&
-          'green' &&
-          'blue'
-        ) {
-          return null;
-        }
-        setInterval(() => {
-          setTimeout(() => {
-            document.body.style.backgroundColor = input1.value;
-          }, 1000);
-          setTimeout(() => {
-            document.body.style.backgroundColor = input2.value;
-          }, 2000);
-          setTimeout(() => {
-            document.body.style.backgroundColor = input3.value;
-          }, 3000);
-        }, 1000);
-      };
-      const resetValue = () => {
-        input1.value = '';
-        input2.value = '';
-        input3.value = '';
+      const input = document.querySelector('.input');
+      const ul = document.querySelector('.list');
+      const printInputValue = () => {
+        ul.innerHTML = '<li></li>';
+        const li = document.querySelector('li');
+        li.innerText = input.value;
       };
     </script>
   </body>
