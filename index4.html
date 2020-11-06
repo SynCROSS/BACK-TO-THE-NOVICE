@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YEE</title>
+  </head>
+  <body>
+    <input type="text" name="text" id="textbox1" value="1" />
+    <input type="text" name="text" id="textbox2" value="2" />
+    <input type="text" name="text" id="textbox3" value="3" />
+    <input type="button" value="Press!" onclick="alertButton()" />
+
+    <input type="text" id="search" placeholder="Search..." />
+    <input type="button" value="Press!" onclick="searchButton()" />
+    <script>
+      const alertButton = () => {
+        for (const iterator of document.getElementsByName('text')) {
+          alert(iterator.value);
+          iterator.value = '';
+        }
+      };
+      const searchButton = () => {
+        for (const iterator of document.querySelectorAll(
+          `input[name*=${search_condition}]`,
+        )) {
+          alert(iterator.value);
+        }
+      };
+    </script>
+  </body>
+</html>
