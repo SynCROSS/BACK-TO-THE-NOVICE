@@ -10,20 +10,36 @@
     <input type="text" class="input input1" />
     <input type="text" class="input input2" />
     <input type="text" class="input input3" />
-    <br />
     <!-- </form> -->
-    <input
+    <!-- <input
       type="submit"
       value="submit"
       onclick="changeColor()"
-      style="width: 41.5rem"
-    />
+      style="width: 20rem"
+    /> -->
+    <div class="button">
+      <button
+        type="submit"
+        class="btn btn-submit"
+        onclick="changeColor()"
+        style="width: 20.5rem"
+      >
+        Submit
+      </button>
+      <button
+        type="submit"
+        class="btn btn-reset"
+        onclick="resetValue()"
+        style="width: 20.5rem"
+      >
+        Reset
+      </button>
+    </div>
     <script>
+      const input1 = document.querySelector('.input1');
+      const input2 = document.querySelector('.input2');
+      const input3 = document.querySelector('.input3');
       const changeColor = () => {
-        const input1 = document.querySelector('.input1');
-        const input2 = document.querySelector('.input2');
-        const input3 = document.querySelector('.input3');
-
         if (
           input1.value !== 'red' &&
           'green' &&
@@ -48,6 +64,11 @@
             document.body.style.backgroundColor = input3.value;
           }, 3000);
         }, 1000);
+      };
+      const resetValue = () => {
+        input1.value = '';
+        input2.value = '';
+        input3.value = '';
       };
     </script>
   </body>
