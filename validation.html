@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation</title>
+  </head>
+  <body>
+    <div class="register">
+      <h1>회원가입</h1>
+      <div class="name">
+        <strong>이름</strong
+        ><input
+          type="text"
+          class="input inputName"
+          minlength="2"
+          maxlength="10"
+        />
+      </div>
+      <div class="id">
+        <strong>ID</strong><input type="text" class="input inputId" />
+      </div>
+      <div class="password">
+        <strong>PASSWORD</strong
+        ><input type="password" class="input inputPassword" minlength="8" />
+      </div>
+      <div class="resident">
+        <strong>주민 번호</strong
+        ><input
+          type="text"
+          class="input inputResident resident1"
+          minlength="6"
+          maxlength="6"
+        /><input
+          type="text"
+          class="input inputResident resident2"
+          maxlength="1"
+        />
+      </div>
+      <input type="button" value="Y" onclick="isValid()" /><input
+        type="button"
+        value="N"
+        onclick="onClick()"
+      />
+    </div>
+    <script>
+      const inputName = document.querySelector('.inputName');
+      const inputId = document.querySelector('.inputId');
+      const inputPassword = document.querySelector('.inputPassword');
+      const inputResident = document.querySelectorAll('.inputResident');
+
+      const resident1 = document.querySelector('.resident1');
+      const resident2 = document.querySelector('.resident2');
+
+      const isValid = () => {
+        if (
+          !inputName.value ||
+          (inputName.length < 2 && inputName.length > 10)
+        ) {
+          alert('Write Again!');
+          return null;
+        }
+        if (!inputId.value) {
+          alert('Write Again!');
+          return null;
+        }
+        if (!inputPassword.value || inputPassword.value.length < 8) {
+          if (
+            !inputPassword.value ||
+            !inputPassword.value.includes('?') ||
+            !inputPassword.value.includes('!') ||
+            !inputPassword.value.includes('@') ||
+            !inputPassword.value.includes('_')
+          ) {
+            alert('Write Again!');
+            return null;
+          }
+        }
+        if (
+          !inputResident.values ||
+          (resident1.length !== 6 && resident2.length > 1)
+        ) {
+          alert('Write Again!');
+          return null;
+        }
+      };
+
+      const onClick = () => {
+        for (const input of document.querySelectorAll('input[type="text"]')) {
+          input.value = '';
+        }
+        for (const input of document.querySelectorAll(
+          'input[type="password"]',
+        )) {
+          input.value = '';
+        }
+      };
+    </script>
+  </body>
+</html>
