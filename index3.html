@@ -7,18 +7,18 @@
   </head>
   <body>
     <!-- <form> -->
-    <input type="text" class="input" />
+    <input type="text" class="input color" />
+    <input type="number" name="number" id="num" />
     <div class="button">
-      <input type="button" value="submit" onclick="printInputValue()" />
+      <input type="button" value="Change" onclick="changeColor()" />
     </div>
-    <ul class="list"></ul>
     <script>
-      const input = document.querySelector('.input');
-      const ul = document.querySelector('.list');
-      const printInputValue = () => {
-        ul.innerHTML = '<li></li>';
-        const li = document.querySelector('li');
-        li.innerText = input.value;
+      const color = document.querySelector('.color');
+      const num = document.querySelector('#num');
+      const changeColor = () => {
+        setTimeout(() => {
+          document.body.style.backgroundColor = color.value;
+        }, num.value);
       };
     </script>
   </body>
