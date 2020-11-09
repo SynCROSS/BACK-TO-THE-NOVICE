@@ -51,19 +51,28 @@
 
       const resident1 = document.querySelector('.resident1');
       const resident2 = document.querySelector('.resident2');
-
       const isValid = () => {
         if (
           !inputName.value ||
           (inputName.length < 2 && inputName.length > 10)
         ) {
-          alert('Write Again!');
+          // alert('Write Again!');
           return null;
         }
         if (!inputId.value) {
-          alert('Write Again!');
+          // alert('Write Again!');
           return null;
         }
+
+        if (
+          !inputResident.values ||
+          (resident1.length !== 6 && resident2.length > 1)
+        ) {
+          // alert('Write Again!');
+          return null;
+        }
+      };
+      const checkPassword = () => {
         if (!inputPassword.value || inputPassword.value.length < 8) {
           if (
             !inputPassword.value ||
@@ -72,19 +81,19 @@
             !inputPassword.value.includes('@') ||
             !inputPassword.value.includes('_')
           ) {
-            alert('Write Again!');
+            // alert('Write Again!');
             return null;
           }
+          return true;
         }
-        if (
-          !inputResident.values ||
-          (resident1.length !== 6 && resident2.length > 1)
-        ) {
+      };
+      window.onload = checkPassword();
+      const passwordIsValid = checkPassword => {
+        if (checkPassword !== true) {
           alert('Write Again!');
           return null;
         }
       };
-
       const onClick = () => {
         for (const input of document.querySelectorAll('input[type="text"]')) {
           input.value = '';

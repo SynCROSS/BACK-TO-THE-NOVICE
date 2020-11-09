@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A/S Report</title>
+  </head>
+  <body>
+    <div class="report">
+      <h1>A/S Report</h1>
+      <div class="name">
+        <strong>이름</strong
+        ><input
+          type="text"
+          class="input inputName"
+          minlength="2"
+          maxlength="10"
+        />
+      </div>
+      <div class="id">
+        <strong>E-Mail</strong
+        ><input
+          type="text"
+          class="input inputMail"
+          placeholder="email@example.com"
+        />
+      </div>
+      <div class="title">
+        <strong>제목</strong
+        ><input
+          type="text"
+          class="input inputTitle"
+          placeholder="'[분류] 제목명'"
+        />
+      </div>
+      <div class="comment">
+        <strong>설명</strong
+        ><input type="text" class="input inputComment" maxlength="100" />
+      </div>
+      <input type="button" value="Submit" onclick="isValid()" /><input
+        type="button"
+        value="Reset"
+        onclick="clearValue()"
+      />
+    </div>
+    <script>
+      const inputName = document.querySelector('.inputName');
+      const inputMail = document.querySelector('.inputMail');
+      const inputTitle = document.querySelector('.inputTitle');
+      const inputComment = document.querySelectorAll('.inputComment');
+
+      const isFormValid = () => {
+        if (
+          !inputName.value ||
+          !(inputName.value.length >= 2 && inputName.value.length <= 10)
+        ) {
+          return null;
+        }
+
+        if (!inputMail.value || inputMail.value.split('@').length !== 2) {
+          return null;
+        }
+
+        if (
+          !inputTitle.value ||
+          (!inputTitle.value.includes('[') &&
+            !inputTitle.value.includes(']') &&
+            !/\[+[^\s]+\]\s[^\s]/g.test(inputTitle.value))
+        ) {
+          return null;
+        } else {
+          const regex = /(?<=\[).+?(?=\])/g;
+          const title = regex.exec(inputTitle.value);
+          alert(title[0]);
+        }
+        // if (!inputComment.value) {
+        //   return null
+        // }
+      };
+      const isValid = () => {
+        if (isFormValid() === null) {
+          alert('Write Again!');
+        } else {
+          // console.log(result);
+          alert('Submit Successful!');
+        }
+      };
+
+      const clearValue = () => {
+        for (const input of document.querySelectorAll('input[type="text"]')) {
+          input.value = '';
+        }
+        // for (const input of document.querySelectorAll('input[type="email"]')) {
+        //   input.value = '';
+        // }
+      };
+    </script>
+  </body>
+</html>
