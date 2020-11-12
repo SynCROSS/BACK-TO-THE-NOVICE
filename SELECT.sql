@@ -177,4 +177,51 @@ FROM
 WHERE
         category.id = product.category_id
     AND product.id = payment_history.product_id
-    AND member.id = payment_history.member_id;
+        AND member.id = payment_history.member_id;
+-- * PROBLEM 14.
+SELECT
+    COUNT(price)     AS 상품개수,
+    SUM(price)       AS 총가격,
+    AVG(price)       AS 평균값,
+    MAX(price)       AS 최대값,
+    MIN(price)       AS 촤소값
+FROM
+    product;
+
+SELECT
+    COUNT(price)     AS 상품개수,
+    SUM(price)       AS 총가격,
+    AVG(price)       AS 평균값,
+    MAX(price)       AS 최대값,
+    MIN(price)       AS 촤소값
+FROM
+    product
+GROUP BY
+    category_id;
+
+SELECT
+    COUNT(price)     AS 상품개수,
+    SUM(price)       AS 총가격,
+    AVG(price)       AS 평균값,
+    MAX(price)       AS 최대값,
+    MIN(price)       AS 촤소값
+FROM
+    product
+GROUP BY
+    category_id
+HAVING
+    SUM(price) < 10000000;
+-- * PROBLEM 15.
+SELECT
+    category_id,
+    COUNT(price)     AS 상품개수,
+    SUM(price)       AS 총가격,
+    AVG(price)       AS 평균값,
+    MAX(price)       AS 최대값,
+    MIN(price)       AS 촤소값
+FROM
+    product
+WHERE
+    price <= 1000000
+GROUP BY
+    category_id;
