@@ -69,7 +69,7 @@ GROUP BY
     product.name
 ORDER BY
     최다판매량 DESC,
-    최고매출액 DESC
+    최고매출액 DESC;
 -- * Problem 6.
 SELECT
     category.name,
@@ -83,4 +83,20 @@ GROUP BY
     category.id,
     category.name
 ORDER BY
-    총매출액 DESC
+    총매출액 DESC;
+-- * Problem 7.
+SELECT
+    ( order_price / order_count ) AS 평균단가,
+    payment_history.*
+FROM
+    payment_history
+WHERE
+    ( order_price / order_count ) <= 100000;
+-- * Problem 8.
+SELECT
+    address,
+    sum(order_price)
+FROM
+    payment_history
+GROUP BY
+    address;
