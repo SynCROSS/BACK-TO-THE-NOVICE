@@ -11,7 +11,6 @@
 // *   month+=2
 // * }
 // * 3.
-// * let num = 0;
 // * const fibonacci = num => {
 // *   if (!num) {
 // *     return null;
